@@ -238,9 +238,6 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 ## 📚 Documentation
 
 - [Quick Start Guide](doc/快速打包参考.md)
-- [Deployment Guide](doc/DEPLOYMENT_README.md)
-- [Cross-Platform Build Guide](doc/跨平台打包指南.md)
-- [Technical Architecture](doc/technical-architecture-design.md)
 - [Configuration Guide](doc/配置说明.md)
 - [API Documentation](http://localhost:8080/docs) (After startup)
 
