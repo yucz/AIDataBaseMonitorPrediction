@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.4-green.svg)](https://fastapi.tiangolo.com/)
-[![Release](https://img.shields.io/github/release/yucz/AIDataBaseMonitorPrediction)](https://github.com/yucz/AIDataBaseMonitorPrediction/releases)
+[![Release](https://img.shields.io/github/release/yucz/AIDataBaseMonitorPrediction)](https://github.com/yucz/AIDataBaseMonitorPrediction/releases/latest)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](#-supported-platforms)
 
 **AI 驱动的数据库监控与故障预测系统**
@@ -52,7 +52,7 @@
 
 ### 下载预编译版本
 
-从 [Releases](https://github.com/your-repo/releases) 下载适合您平台的最新版本：
+从 [Releases](https://github.com/yucz/AIDataBaseMonitorPrediction/releases/latest) 下载适合您平台的最新版本：
 
 | 平台 | 文件 | 架构 |
 |----------|------|--------------|
@@ -236,8 +236,8 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 
 ## 📚 文档
 
-- [快速开始指南](doc/快速打包参考.md)
-- [配置指南](doc/配置说明.md)
+- [快速开始指南](https://github.com/yucz/AIDataBaseMonitorPrediction/wiki/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)
+- [配置指南](https://github.com/yucz/AIDataBaseMonitorPrediction/wiki/%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
 - [API 文档](http://localhost:8080/docs)（启动后访问）
 
 
