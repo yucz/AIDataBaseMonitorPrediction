@@ -4,8 +4,8 @@
 [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.4-green.svg)](https://fastapi.tiangolo.com/)
-[![Release](https://img.shields.io/github/v/release/yucz/AIDataBaseMonitorPrediction?color=blue&label=Latest%20Release)](https://fastapi.tiangolo.com/)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](#支持平台)
+[![Release](https://img.shields.io/github/release/yucz/AIDataBaseMonitorPrediction)](https://github.com/yucz/AIDataBaseMonitorPrediction/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](#-supported-platforms)
 
 **AI 驱动的数据库监控与故障预测系统**
 
