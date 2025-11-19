@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.4-green.svg)](https://fastapi.tiangolo.com/)
-[![Release](https://img.shields.io/github/release/yucz/AIDataBaseMonitorPrediction)](https://github.com/yucz/AIDataBaseMonitorPrediction/releases)
+[![Release](https://img.shields.io/github/release/yucz/AIDataBaseMonitorPrediction)](https://github.com/yucz/AIDataBaseMonitorPrediction/releases/latest)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](#-supported-platforms)
 
 **AI-Powered Database Monitoring and Fault Prediction System**
@@ -53,7 +53,7 @@ Through a multi-algorithm fusion prediction engine, the system can **predict dat
 
 ### Download Pre-built Binaries
 
-Download the latest release for your platform from [Releases](https://github.com/your-repo/releases):
+Download the latest release for your platform from [Releases](https://github.com/yucz/AIDataBaseMonitorPrediction/releases/latest):
 
 | Platform | File | Architecture |
 |----------|------|--------------|
@@ -237,8 +237,8 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 
 ## 📚 Documentation
 
-- [Quick Start Guide](doc/快速打包参考.md)
-- [Configuration Guide](doc/配置说明.md)
+- [Quick Start Guide](https://github.com/yucz/AIDataBaseMonitorPrediction/wiki/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)
+- [Configuration Guide](https://github.com/yucz/AIDataBaseMonitorPrediction/wiki/%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
 - [API Documentation](http://localhost:8080/docs) (After startup)
 
 
