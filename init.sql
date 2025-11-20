@@ -1,5 +1,6 @@
-CREATE DATABASE `db_prediction` /*!40100 DEFAULT CHARACTER SET utf8mb4 */
-use db_prediction;
+CREATE DATABASE `db_prediction` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+use `db_prediction`;
 
 SET FOREIGN_KEY_CHECKS=0;
 
