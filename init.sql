@@ -16,7 +16,7 @@ CREATE TABLE `alembic_version` (
 -- ----------------------------
 -- Records of alembic_version
 -- ----------------------------
-INSERT INTO `alembic_version` VALUES ('1.0.0');
+INSERT INTO `alembic_version` VALUES ('2a538a20aea7');
 
 -- ----------------------------
 -- Table structure for data_quality_summary
@@ -260,7 +260,7 @@ CREATE TABLE `metric_configs` (
 -- ----------------------------
 INSERT INTO `metric_configs` VALUES ('1', 'mysql', 'sum_slowqueries', 'qce_cdb_slowqueries_sum', 'slow_queries', '慢查询数', '1', '2025-08-06 15:57:57', '2025-11-06 10:24:37', '200.00', '400.00');
 INSERT INTO `metric_configs` VALUES ('2', 'mysql', 'max_cpu', 'qce_cdb_cpuuserate_max', 'cpu_usage', 'CPU使用率最大值(%)', '1', '2025-08-06 15:57:57', '2025-11-04 16:29:01', '70.00', '90.00');
-INSERT INTO `metric_configs` VALUES ('3', 'mysql', 'max_qps', 'qce_cdb_qps_max', 'qps', 'QPS最大值(次/秒)', '1', '2025-08-06 15:57:57', '2025-11-04 16:29:02', '10000.00', '50000.00');
+INSERT INTO `metric_configs` VALUES ('3', 'mysql', 'max_qps', 'qce_cdb_qps_max', 'qps', 'QPS最大值(次/秒)', '1', '2025-08-06 15:57:57', '2025-11-21 17:30:22', '10000.00', '50000.00');
 INSERT INTO `metric_configs` VALUES ('4', 'mysql', 'max_threadsrunning', 'qce_cdb_threadsrunning_max', 'threads_running', '运行线程数最大值', '1', '2025-08-06 15:57:57', '2025-11-04 16:29:03', '50.00', '100.00');
 INSERT INTO `metric_configs` VALUES ('5', 'mysql', 'max_tps', 'qce_cdb_tps_max', 'tps', 'TPS最大值(次/秒)', '1', '2025-08-06 15:57:57', '2025-11-20 13:40:15', '5000.00', '10000.00');
 INSERT INTO `metric_configs` VALUES ('6', 'mysql', 'max_volumerate', 'qce_cdb_volumerate_max', 'volume_rate', '磁盘使用率最大值(%)', '1', '2025-08-06 15:57:57', '2025-11-20 13:40:28', '75.00', '95.00');
@@ -268,7 +268,7 @@ INSERT INTO `metric_configs` VALUES ('7', 'redis', 'max_cpu', 'qce_redis_mem_cpu
 INSERT INTO `metric_configs` VALUES ('8', 'redis', 'max_keys', 'qce_redis_mem_keys_max', null, 'Key数量最大值', '0', '2025-08-06 15:57:57', '2025-11-20 13:39:29', '1000000.00', '10000000.00');
 INSERT INTO `metric_configs` VALUES ('9', 'redis', 'max_memory', 'qce_redis_mem_memutil_max', 'memory_usage', '内存使用率最大值(%)', '1', '2025-08-06 15:57:57', '2025-11-20 13:39:30', '80.00', '95.00');
 INSERT INTO `metric_configs` VALUES ('10', 'redis', 'max_qps', 'qce_redis_mem_commands_avg', null, 'QPS平均值(次/秒)', '1', '2025-08-06 15:57:57', '2025-11-20 13:41:01', '50000.00', '100000.00');
-INSERT INTO `metric_configs` VALUES ('11', 'mysql', 'max_memory', 'qce_cdb_memoryuserate_max', 'memory_usage', '内存使用率最大值(%)', '1', '2025-08-06 17:15:45', '2025-11-20 13:39:33', '80.00', '95.00');
+INSERT INTO `metric_configs` VALUES ('11', 'mysql', 'max_memory', 'qce_cdb_memoryuserate_max', 'memory_usage', '内存使用率最大值(%)', '1', '2025-08-06 17:15:45', '2025-11-21 17:32:26', '80.00', '95.00');
 
 -- ----------------------------
 -- Table structure for monitoring_metrics
@@ -391,12 +391,12 @@ CREATE TABLE `system_configs` (
   KEY `idx_config_type` (`config_type`),
   KEY `idx_config_key` (`config_key`),
   KEY `idx_config_created_at` (`created_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COMMENT='系统配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COMMENT='系统配置表';
 
 -- ----------------------------
 -- Records of system_configs
 -- ----------------------------
-INSERT INTO `system_configs` VALUES ('1', 'PREDICTION_INTERVAL', '120', 'int', '预测任务的执行间隔时间(秒)', '0', '1', null, '2025-10-17 12:05:20');
+INSERT INTO `system_configs` VALUES ('1', 'PREDICTION_INTERVAL', '120', 'int', '自动预测的时间间隔（秒）', '0', '1', null, '2025-11-21 12:01:41');
 INSERT INTO `system_configs` VALUES ('2', 'PREDICTION_DATA_WINDOW', '30', 'int', '预测数据窗口(分钟)：基于过去30分钟的数据,判断当前/近期的异常概率。配置优先级 (从高到低): prediction_configs 表的 data_window_minutes 字段>system_configs 表的 PREDICTION_DATA_WINDOW 参数>.env 文件的 PREDICTION_DATA_WINDOW 环境变量>代码默认值 (30分钟)', '0', '1', null, null);
 INSERT INTO `system_configs` VALUES ('3', 'PREDICTION_MAX_CONCURRENT', '10', 'int', '最大并发预测数', '0', '1', null, null);
 INSERT INTO `system_configs` VALUES ('4', 'BLACKLIST_MAX_FAILURES', '3', 'int', '黑名单最大失败次数', '0', '1', null, null);
@@ -412,7 +412,7 @@ INSERT INTO `system_configs` VALUES ('13', 'VECTOR_INDEX_BUILD_ENABLED', 'true',
 INSERT INTO `system_configs` VALUES ('14', 'VECTOR_INDEX_BUILD_INTERVAL', '3600', 'int', '向量索引构建间隔(秒)', null, '1', '2025-10-23 11:08:40', '2025-10-23 11:08:40');
 INSERT INTO `system_configs` VALUES ('15', 'VECTOR_INDEX_LOOKBACK_DAYS', '15', 'int', 'FAISS向量索引回溯天数（与FAISS实际使用的15天保持一致）', null, '1', '2025-10-23 11:08:40', '2025-10-30 18:03:15');
 INSERT INTO `system_configs` VALUES ('16', 'VECTOR_INDEX_MIN_SAMPLES', '10', 'int', '向量索引最小样本数', null, '1', '2025-10-23 11:08:40', '2025-10-23 11:08:40');
-INSERT INTO `system_configs` VALUES ('17', 'fusion_weights', '{\"dtw\": 0.15, \"vector\": 0.25, \"llm\": 0.6}', 'json', '融合算法权重配置（已优化：降低DTW权重，提高LLM权重）', null, '1', '2025-10-23 15:32:09', '2025-10-23 16:23:12');
+INSERT INTO `system_configs` VALUES ('17', 'fusion_weights', '{\"dtw\": 0.4, \"vector\": 0.35, \"llm\": 0.25}', 'json', 'DTW、向量、LLM三种算法的融合权重配置', null, '1', '2025-10-23 15:32:09', '2025-11-21 12:01:41');
 INSERT INTO `system_configs` VALUES ('20', 'USE_ENHANCED_TREND_ANALYZER', 'true', 'bool', '是否使用增强版趋势分析器(支持周期性检测、异常值过滤、自适应预测)。配置优先级(由高到低): system_configs表 > .env文件 > 代码默认值', '0', '1', null, '2025-11-06 19:40:40');
 INSERT INTO `system_configs` VALUES ('21', 'TREND_ANALYZER_PERIODICITY_THRESHOLD', '0.3', 'float', '周期性检测阈值(0.3表示周期性功率占比>30%才认为有周期性)。仅在启用增强版趋势分析器时生效', '0', '1', null, null);
 INSERT INTO `system_configs` VALUES ('22', 'TREND_ANALYZER_OUTLIER_IQR_MULTIPLIER', '1.5', 'float', '异常值IQR倍数(1.5是标准值,用于过滤异常数据点)。仅在启用增强版趋势分析器时生效', '0', '1', null, null);
@@ -421,8 +421,42 @@ INSERT INTO `system_configs` VALUES ('24', 'HISTORICAL_PATTERN_MIN_SAMPLES', '50
 INSERT INTO `system_configs` VALUES ('25', 'HISTORICAL_PATTERN_DECAY_DAYS', '7.0', 'float', '历史同期预测时间衰减因子(天,用于计算历史数据权重)', null, '1', null, null);
 INSERT INTO `system_configs` VALUES ('26', 'HISTORICAL_PATTERN_MATCH_WEEKDAY', 'true', 'bool', '历史同期预测是否匹配星期(True=区分工作日/周末)', null, '1', null, null);
 INSERT INTO `system_configs` VALUES ('27', 'DTW_DATA_SOURCE', 'prometheus', 'string', 'DTW数据源配置：prometheus=从Prometheus直接查询（推荐），database=从monitoring_metrics表查询（已废弃）', '0', '1', '2025-10-29 22:22:22', '2025-10-30 18:03:03');
-INSERT INTO `system_configs` VALUES ('28', 'prometheus_instance_label', 'instance_id', 'string', 'Prometheus PromQL查询中的实例过滤标签名称。支持的值: instance_id(默认,适用于腾讯云CDB), instance(适用于标准Prometheus), server_id(适用于自定义监控)等。修改后需重启应用生效。', '0', '1', '2025-10-30 16:56:04', '2025-10-30 16:56:04');
+INSERT INTO `system_configs` VALUES ('28', 'prometheus_instance_label', 'instance_id', 'string', 'Prometheus实例标签名称，用于筛选实例', '0', '1', '2025-10-30 16:56:04', '2025-11-21 09:52:30');
 INSERT INTO `system_configs` VALUES ('29', 'FAISS_DATA_SOURCE', 'prometheus', 'string', 'FAISS向量索引数据源：prometheus=从Prometheus直接查询（当前实现），database=从monitoring_metrics表查询（未实现）', null, '1', '2025-10-30 18:03:10', '2025-10-30 18:03:10');
+INSERT INTO `system_configs` VALUES ('31', 'BASIC_SYSTEM_NAME', '数据库故障预测系统', 'string', '系统显示名称', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('32', 'BASIC_SYSTEM_DESCRIPTION', '基于AI的智能数据库故障预测和监控系统', 'string', '系统功能描述', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('33', 'BASIC_TIMEZONE', 'Asia/Shanghai', 'string', '系统时区设置', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('34', 'BASIC_LANGUAGE', 'zh-CN', 'string', '系统界面语言', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('35', 'BASIC_THEME', 'light', 'string', '系统界面主题', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('36', 'MONITORING_COLLECTION_INTERVAL', '60', 'int', '数据采集间隔（秒）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('37', 'MONITORING_DATA_RETENTION_DAYS', '30', 'int', '监控数据保留天数', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('38', 'MONITORING_AUTO_CLEANUP', 'true', 'bool', '是否自动清理过期数据', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('39', 'MONITORING_REALTIME_MONITORING', 'true', 'bool', '是否启用实时监控', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('40', 'MONITORING_BATCH_SIZE', '1000', 'int', '批量处理数据的大小', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('41', 'PREDICTION_WINDOW_SIZE', '10', 'int', '预测使用的历史数据窗口大小（分钟）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 11:09:21');
+INSERT INTO `system_configs` VALUES ('42', 'PREDICTION_INTERVAL_MINUTES', '2', 'int', '自动预测的时间间隔（分钟）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 11:09:21');
+INSERT INTO `system_configs` VALUES ('43', 'PREDICTION_CONFIDENCE_THRESHOLD', '0.75', 'float', '预测结果的最小置信度阈值', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('47', 'PREDICTION_AUTO_PREDICTION', 'true', 'bool', '是否启用自动预测', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('48', 'ALERTS_ENABLED', 'true', 'bool', '是否启用告警功能', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('49', 'ALERTS_ENABLED_LEVELS', '[\"MEDIUM\", \"HIGH\", \"CRITICAL\"]', 'json', '启用的告警级别列表', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('50', 'ALERTS_NOTIFICATION_METHODS', '[\"email\"]', 'json', '告警通知方式列表', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('51', 'ALERTS_EMAIL_SMTP_SERVER', '', 'string', '邮件服务器地址', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('52', 'ALERTS_EMAIL_SMTP_PORT', '587', 'string', '邮件服务器端口', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('53', 'ALERTS_EMAIL_USERNAME', '', 'string', '发送邮件的用户名', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('54', 'ALERTS_EMAIL_PASSWORD', '', 'string', '发送邮件的密码', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('55', 'ALERTS_RATE_LIMIT_MINUTES', '15', 'int', '同一告警的最小间隔时间（分钟）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('56', 'PERFORMANCE_MAX_CONCURRENCY', '100', 'int', '系统最大并发处理数', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('57', 'PERFORMANCE_CACHE_SIZE', '512', 'string', '缓存大小（MB）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('58', 'PERFORMANCE_DB_POOL_SIZE', '20', 'int', '数据库连接池大小', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('59', 'PERFORMANCE_ENABLE_COMPRESSION', 'true', 'bool', '是否启用数据压缩', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('60', 'PERFORMANCE_ENABLE_CACHE', 'true', 'bool', '是否启用缓存', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('61', 'SECURITY_SESSION_TIMEOUT', '120', 'int', '用户会话超时时间（分钟）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('62', 'SECURITY_PASSWORD_POLICY', '{\"minLength\": 8, \"requireUppercase\": true, \"requireLowercase\": true, \"requireNumbers\": true, \"requireSpecialChars\": false}', 'json', '密码复杂度策略', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('63', 'SECURITY_MAX_LOGIN_ATTEMPTS', '5', 'int', '允许的最大登录失败次数', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('64', 'SECURITY_IP_WHITELIST', '', 'string', '允许访问的IP地址列表（逗号分隔）', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('65', 'SECURITY_ENABLE_AUDIT_LOG', 'true', 'bool', '是否启用审计日志', '0', '1', '2025-11-21 18:46:58', '2025-11-21 12:01:42');
+INSERT INTO `system_configs` VALUES ('66', 'PREDICTION_WINDOW_MINUTES', '10', 'int', '预测使用的历史数据窗口大小（分钟）', '0', '1', '2025-11-21 19:29:24', '2025-11-21 12:01:41');
+INSERT INTO `system_configs` VALUES ('67', 'PREDICTION_FUSION_WEIGHTS', '{\"dtw\": 0.25, \"vector\": 0.6, \"llm\": 0.15}', 'json', 'DTW、向量、LLM三种算法的融合权重配置', '0', '1', '2025-11-21 19:40:41', '2025-11-21 11:45:30');
 
 -- ----------------------------
 -- Table structure for system_logs
@@ -472,5 +506,6 @@ CREATE TABLE `vector_indexes` (
 -- ----------------------------
 -- Records of vector_indexes
 -- ----------------------------
+
 
 SET FOREIGN_KEY_CHECKS=1;
