@@ -1,3 +1,5 @@
+
+
 <div align="center">
 <h1> AI Database Monitor Prediction </h1>
 
@@ -271,7 +273,7 @@ This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE)
 
 ## 📧 Contact
 
-- **Issues**: [GitHub Issues](https://github.com/your-repo/issues)
+- **Issues**: [GitHub Issues](https://github.com/yucz/AIDataBaseMonitorPrediction/issues)
 - **Email**: 250305240@qq.com
 
 ---
